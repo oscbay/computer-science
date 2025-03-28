@@ -1,6 +1,12 @@
 #this is for the AS92004 assessment
 
+#gets random for random number gernerator
+import random
 #create functions
+
+#function to get input from user
+
+
 
 def get_input(input_message, error_message, data_type):
     while True:
@@ -13,18 +19,44 @@ def get_input(input_message, error_message, data_type):
             return user_input
             break
 
+#function to confirm input from user
 def confirm_input(input_message):
-    while True:
+    while user_input != 'y' and user_input != 'yes' and user_input != 'n' and user_input != 'no':
         user_input = input(input_message).lower()
         if user_input == 'y' or user_input == 'yes':
             return True
-            break
         elif user_input == 'n' or user_input == 'no':
             return False
-            break
         else:
             print("Please enter yes or no")
-            continue
+
+#function for question
+questions_list = ['pythguras', 'sin', 'cos', 'tan']
+def question():
+    question_type = random.choice(questions_list)
+
+    math_num_1 = random.randint(100)
+    math_num_2 = random.randint(100)
+    math_num_3 = random.randint(100)
+
+    print('Your question is one on ' + str(question_type))
+    if question_type == 'pythguras':
+        pythguras_question
+    if question_type == 'sin':
+        sin_question
+    if question_type == 'cos':
+        cos_question
+    if question_type == 'tan':
+        tan_question
+
+
+def pythguras_question():
+
+def cos_question():
+
+def cos_question():
+
+def tan_question():
 
 
 #main code
@@ -49,6 +81,4 @@ while confirm == False:
             print('Great, lets start the quiz')
         else:
             continue
-    
-
 
