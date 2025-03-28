@@ -2,6 +2,10 @@
 
 #gets random for random number gernerator
 import random
+
+#creates vars
+
+
 #create functions
 
 #function to get input from user
@@ -17,46 +21,39 @@ def get_input(input_message, error_message, data_type):
             continue
         else:
             return user_input
-            break
+            breaks
 
 #function to confirm input from user
 def confirm_input(input_message):
-    while user_input != 'y' and user_input != 'yes' and user_input != 'n' and user_input != 'no':
+    while True:
         user_input = input(input_message).lower()
-        if user_input == 'y' or user_input == 'yes':
-            return True
-        elif user_input == 'n' or user_input == 'no':
-            return False
+        if user_input in ['y', 'yes']:
+            return 'yes'
+        elif user_input in ['n', 'no']:
+            return 'no'
         else:
-            print("Please enter yes or no")
+            print("Please enter 'yes' or 'no'.")
 
 #function for question
-questions_list = ['pythguras', 'sin', 'cos', 'tan']
-def question():
-    question_type = random.choice(questions_list)
+math_num_1 = random.randint(100)
+math_num_2 = random.randint(100)
+math_num_3 = random.randint(100)
 
-    math_num_1 = random.randint(100)
-    math_num_2 = random.randint(100)
-    math_num_3 = random.randint(100)
+print('Your question is one on ' + str(question_type))
 
-    print('Your question is one on ' + str(question_type))
-    if question_type == 'pythguras':
-        pythguras_question
-    if question_type == 'sin':
-        sin_question
-    if question_type == 'cos':
-        cos_question
-    if question_type == 'tan':
-        tan_question
 
 
 def pythguras_question():
+    print(1)
+
+def sin_question():
+    print(2)
 
 def cos_question():
-
-def cos_question():
+    print(3)
 
 def tan_question():
+    print(4)
 
 
 #main code
@@ -71,14 +68,17 @@ print('hello, ' + name)
 
 
 #ask user how many questions they want to answer and confirm amount the user wants
-confirm = False
-while confirm == False:
-    
-        number_of_questions = get_input("Enter the amount of questions you want to answer: ", "Please enter a number", int)
-    
-        confirm = confirm_input('Do you want to have' + number_of_questions + 'questions? ')
-        if confirm == True:
-            print('Great, lets start the quiz')
+confirm = 'n'
+while confirm is not in ['y', 'no']:
+    number_of_questions = get_input('How many question do you want? ', 'please enter a number', int)
+    while confirm is not in ['y', 'n', 'no', 'yes']
+        confirm = get_input('do you want ' + str(number_of_questions) + 'questions', 'please enter yes or no', str)
+        if confirm in ['y', 'yes']:
+            print(f'Okay, you will have to solve {str(number_of_questions)} questions on pythagouras therom')
+            break
+        elif confirm in ['n', 'no']:
+            print ('Okay')
+            break
         else:
+            print ('Please enter yes or no')
             continue
-
