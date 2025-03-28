@@ -44,13 +44,11 @@ while confirm == False:
     
         number_of_questions = get_input("Enter the amount of questions you want to answer: ", "Please enter a number", int)
     
-        confirm = confirm_input('Do you want to have ' + str(number_of_questions) + ' questions? ')
+        confirm = confirm_input('Do you want to have' + number_of_questions + 'questions? ')
         if confirm == True:
             print('Great, lets start the quiz')
         else:
             continue
-
-
     
 
 
