@@ -1,1 +1,54 @@
 #this is for the AS92004 assessment
+
+#create functions
+
+def get_input(input_message, error_message, data_type):
+    while True:
+        try:
+            user_input = data_type(input(input_message))
+        except ValueError:
+            print(error_message)
+            continue
+        else:
+            return user_input
+            break
+
+def confirm_input(input_message):
+    while True:
+        user_input = input(input_message).lower()
+        if user_input == 'y' or user_input == 'yes':
+            return True
+            break
+        elif user_input == 'n' or user_input == 'no':
+            return False
+            break
+        else:
+            print("Please enter yes or no")
+            continue
+
+
+#main code
+
+#introduction
+print('Hello, welcome to the triganomitry and pythagoras theorem quiz')
+print('You will be asked a series of questions and you will need to answer them correctly')
+
+#ask user for their name and welcome them
+name = get_input("Enter your name: ", "Please enter your name", str)
+print('hello, ' + name)
+
+
+#ask user how many questions they want to answer and confirm amount the user wants
+confirm = False
+while confirm == False:
+    
+        number_of_questions = get_input("Enter the amount of questions you want to answer: ", "Please enter a number", int)
+    
+        confirm = confirm_input('Do you want to have' + number_of_questions + 'questions? ')
+        if confirm == True:
+            print('Great, lets start the quiz')
+        else:
+            continue
+    
+
+
