@@ -2,7 +2,7 @@
 
 #gets random for random number gernerator
 import random
-
+import math
 #creates vars
 
 
@@ -34,26 +34,7 @@ def confirm_input(input_message):
         else:
             print("Please enter 'yes' or 'no'.")
 
-#function for question
-math_num_1 = random.randint(100)
-math_num_2 = random.randint(100)
-math_num_3 = random.randint(100)
 
-print('Your question is one on ' + str(question_type))
-
-
-
-def pythguras_question():
-    print(1)
-
-def sin_question():
-    print(2)
-
-def cos_question():
-    print(3)
-
-def tan_question():
-    print(4)
 
 
 #main code
@@ -69,16 +50,48 @@ print('hello, ' + name)
 
 #ask user how many questions they want to answer and confirm amount the user wants
 confirm = 'n'
-while confirm is not in ['y', 'no']:
+while True:
     number_of_questions = get_input('How many question do you want? ', 'please enter a number', int)
-    while confirm is not in ['y', 'n', 'no', 'yes']
-        confirm = get_input('do you want ' + str(number_of_questions) + 'questions', 'please enter yes or no', str)
-        if confirm in ['y', 'yes']:
-            print(f'Okay, you will have to solve {str(number_of_questions)} questions on pythagouras therom')
-            break
-        elif confirm in ['n', 'no']:
-            print ('Okay')
-            break
+    confirm = confirm_input(f'You have selected {number_of_questions} questions, is this correct? (yes/no): ')
+    if confirm == 'no':
+        print('Please re-enter the number of questions you want.')
+        continue
+    elif confirm == 'yes':
+        print('Ok')
+        break
+    else:
+        print('Please enter yes or no')
+
+questions_count = 0
+while questions_count < number_of_questions:
+
+    #gernerate a question
+    math_num_1 = random.randrange(1, 100, 1)
+    math_num_2 = random.randrange(1, 100, 1)
+    math_num_3 = random.randrange(1, 100, 1)
+    question_type = random.randrange(1, 3, 1)
+
+    if question_type == 1:
+        question = f'What is the hypotenuse of a triangle with the sides of {math_num_1} and {math_num_2}?'
+        answer = math.sqrt(math_num_1**2 + math_num_2**2)
+        if answer == get_input(question, "Please enter the 'answer'", float):
+            print('Correct')
         else:
-            print ('Please enter yes or no')
-            continue
+            print('Incorrect, the answer was ' + str(answer))
+    elif question_type == 2:
+        question = f'What is the side of a triangle with the hypotenuse of {math_num_1} and the side of {math_num_2}?'
+        answer = math.sqrt(math_num_1**2 - math_num_2**2)
+        if answer == get_input(question, "Please enter the 'answer'", float):
+            print('Correct')
+        else:
+            print('Incorrect, the answer was ' + str(answer))
+    elif question_type == 3:
+        question = f'What is the side of a triangle with the hypotenuse of {math_num_1} and the side of {math_num_2}?'
+        answer = math.sqrt(math_num_1**2 - math_num_2**2)
+        if answer == get_input(question, "Please enter the 'answer'", float):
+            print('Correct')
+        else:
+            print('Incorrect, the answer was ' + str(answer))
+    questions_count += 1
+
+#used w3school
