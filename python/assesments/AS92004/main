@@ -79,6 +79,9 @@ while questions_count < number_of_questions:
         else:
             print('Incorrect, the answer was ' + str(answer))
     elif question_type == 2:
+        #this is to make sure the hypotenuse is larger than the other side
+        if math_num_1 < math_num_2:
+            continue
         question = f'What is the side of a triangle with the hypotenuse of {math_num_1} and the side of {math_num_2}?'
         answer = math.sqrt(math_num_1**2 - math_num_2**2)
         if answer == get_input(question, "Please enter the 'answer'", float):
@@ -86,12 +89,15 @@ while questions_count < number_of_questions:
         else:
             print('Incorrect, the answer was ' + str(answer))
     elif question_type == 3:
+        #this is to make sure the hypotenuse is larger than the other side
+        if math_num_1 < math_num_2:
+            continue
         question = f'What is the side of a triangle with the hypotenuse of {math_num_1} and the side of {math_num_2}?'
         answer = math.sqrt(math_num_1**2 - math_num_2**2)
-        if answer == get_input(question, "Please enter the 'answer'", float):
+        if round(answer, 2) == get_input(question, "Please enter the 'answer'", float):
             print('Correct')
         else:
-            print('Incorrect, the answer was ' + str(answer))
+            print('Incorrect, the answer was ' + str(round(answer, 2)))
     questions_count += 1
 
 #used w3school
