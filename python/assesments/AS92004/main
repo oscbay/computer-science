@@ -69,7 +69,7 @@ while questions_count < number_of_questions:
     math_num_1 = random.randrange(1, 100, 1)
     math_num_2 = random.randrange(1, 100, 1)
     math_num_3 = random.randrange(1, 100, 1)
-    question_type = random.randrange(1, 3, 1)
+    question_type = random.randrange(1, 2, 1)
 
     if question_type == 1:
         question = f'What is the hypotenuse of a triangle with the sides of {math_num_1} and {math_num_2}?'
@@ -88,16 +88,6 @@ while questions_count < number_of_questions:
             print('Correct')
         else:
             print('Incorrect, the answer was ' + str(answer))
-    elif question_type == 3:
-        #this is to make sure the hypotenuse is larger than the other side
-        if math_num_1 < math_num_2:
-            continue
-        question = f'What is the side of a triangle with the hypotenuse of {math_num_1} and the side of {math_num_2}?'
-        answer = math.sqrt(math_num_1**2 - math_num_2**2)
-        if round(answer, 2) == get_input(question, "Please enter the 'answer'", float):
-            print('Correct')
-        else:
-            print('Incorrect, the answer was ' + str(round(answer, 2)))
     questions_count += 1
 
 #used w3school
