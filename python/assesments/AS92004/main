@@ -12,7 +12,10 @@ user_correct = 0
 questions_answers = []
 
 #create constants
-
+except_as_yes = ['y', 'yes']
+except_as_no = ['n', 'no']
+max_rand_num = 100
+question_types = ['hypotenuse', 'side']
 
 #create functions
 
@@ -32,10 +35,10 @@ def get_input(input_message, error_message, data_type):
 def confirm_input(input_message):
     while True:
         user_input = input(input_message).lower()
-        if user_input in ['y', 'yes']:
-            return 'yes'
-        elif user_input in ['n', 'no']:
-            return 'no'
+        if user_input in except_as_yes:
+            return True
+        elif user_input in except_as_no:
+            return False
         else:
             print("Please enter 'yes' or 'no'.")
 
@@ -61,18 +64,18 @@ while True:
         print('Please enter a number greater than 0')
         continue
     confirm = confirm_input(f'You have selected {number_of_questions} questions, is this correct? (yes/no): ')
-    if confirm == 'no':
+    if confirm == False:
         print('Please re-enter the number of questions you want.')
         continue
-    elif confirm == 'yes':
+    elif confirm == True:
         print('Ok')
         if number_of_questions > 30:
             print('You have selected 30 questions, are you sure you want to answer this many questions?')
             confirm = confirm_input('(yes/no): ')
-            if confirm == 'no':
+            if confirm == False:
                 print('Please re-enter the number of questions you want.')
                 continue
-            elif confirm == 'yes':
+            elif confirm == True:
                 print('Ok')
                 break
             continue
@@ -85,12 +88,12 @@ questions_count = 0
 while questions_count < number_of_questions:
 
     #gernerate a question
-    math_num_1 = random.randrange(1, 100, 1)
-    math_num_2 = random.randrange(1, 100, 1)
-    math_num_3 = random.randrange(1, 100, 1)
-    question_type = random.randrange(1, 2, 1)
+    math_num_1 = random.randrange(1, max_rand_num, 1)
+    math_num_2 = random.randrange(1, max_rand_num, 1)
+    math_num_3 = random.randrange(1, max_rand_num, 1)
+    question_type = random.choice(question_types)
 
-    if question_type == 1:
+    if question_type == 'side':
         question = f'What is the hypotenuse of a triangle with the sides of {math_num_1} and {math_num_2}?'
         answer = round(math.sqrt(math_num_1**2 + math_num_2**2), 2)
         user_answer = get_input(question, "Please enter the 'answer' which is a number", float)
@@ -104,7 +107,7 @@ while questions_count < number_of_questions:
             questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
             questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' incorrect as you entered ' + str(user_answer))
             user_incorrect += 1
-    elif question_type == 2:
+    elif question_type == 'hypotenuse':
         #this is to make sure the hypotenuse is larger than the other side
         if math_num_1 < math_num_2:
             continue
