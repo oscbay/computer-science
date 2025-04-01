@@ -26,7 +26,7 @@ def get_input(input_message, error_message, data_type):
             continue
         else:
             return user_input
-            breaks
+            break
 
 #function to confirm input from user
 def confirm_input(input_message):
@@ -57,12 +57,25 @@ print('hello, ' + name)
 confirm = 'n'
 while True:
     number_of_questions = get_input('How many question do you want? ', 'please enter a number', int)
+    if number_of_questions < 1:
+        print('Please enter a number greater than 0')
+        continue
     confirm = confirm_input(f'You have selected {number_of_questions} questions, is this correct? (yes/no): ')
     if confirm == 'no':
         print('Please re-enter the number of questions you want.')
         continue
     elif confirm == 'yes':
         print('Ok')
+        if number_of_questions > 30:
+            print('You have selected 30 questions, are you sure you want to answer this many questions?')
+            confirm = confirm_input('(yes/no): ')
+            if confirm == 'no':
+                print('Please re-enter the number of questions you want.')
+                continue
+            elif confirm == 'yes':
+                print('Ok')
+                break
+            continue
         break
     else:
         print('Please enter yes or no')
@@ -116,6 +129,7 @@ for i in questions_answers:
 
 print(f'You got {user_correct} questions correct and {user_incorrect} questions incorrect')
 print('which means you got ' + str(round((user_correct/number_of_questions)*100, 2)) + '% of your questions correct')
+print()#creates a space between the results and the final message to try make it more readable
 if user_correct == number_of_questions:
     print('Well done you got all the questions correct')
 elif user_correct == 0:
