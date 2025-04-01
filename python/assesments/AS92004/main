@@ -3,15 +3,20 @@
 #gets random for random number gernerator
 import random
 import math
-#creates vars
+#creates variables
+user_incorrect = 0
+user_correct = 0
+
+
+#creates lists
+questions_answers = []
+
+#create constants
 
 
 #create functions
 
 #function to get input from user
-
-
-
 def get_input(input_message, error_message, data_type):
     while True:
         try:
@@ -75,20 +80,49 @@ while questions_count < number_of_questions:
     if question_type == 1:
         question = f'What is the hypotenuse of a triangle with the sides of {math_num_1} and {math_num_2}?'
         answer = round(math.sqrt(math_num_1**2 + math_num_2**2), 2)
-        if answer == get_input(question, "Please enter the 'answer'", float):
+        user_answer = get_input(question, "Please enter the 'answer' which is a number", float)
+        if answer == user_answer:
             print('Correct')
+            questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
+            questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
+            user_correct += 1
         else:
             print('Incorrect, the answer was ' + str(answer))
+            questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
+            questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' incorrect as you entered ' + str(user_answer))
+            user_incorrect += 1
     elif question_type == 2:
         #this is to make sure the hypotenuse is larger than the other side
         if math_num_1 < math_num_2:
             continue
         question = f'What is the side of a triangle with the hypotenuse of {math_num_1} and the side of {math_num_2}?'
         answer = round(math.sqrt(math_num_1**2 - math_num_2**2), 2)
-        if answer == get_input(question, "Please enter the 'answer'", float):
+        user_answer = get_input(question, "Please enter the 'answer' which is a number", float)
+        if answer == user_answer:
             print('Correct')
+            questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
+            questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
+            user_correct += 1
         else:
             print('Incorrect, the answer was ' + str(answer))
+            questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
+            questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' incorrect as you entered ' + str(user_answer))
+            user_incorrect += 1
     questions_count += 1
+
+print('You have finished the quiz, here are your results:')
+for i in questions_answers:
+    print(i)
+
+print(f'You got {user_correct} questions correct and {user_incorrect} questions incorrect')
+print('which means you got ' + str(round((user_correct/number_of_questions)*100, 2)) + '% of your questions correct')
+if user_correct == number_of_questions:
+    print('Well done you got all the questions correct')
+elif user_correct == 0:
+    print('You got all the questions wrong, better luck next time')
+elif user_correct > user_incorrect:
+    print('Well done, you got more questions correct than incorrect')
+else:
+    print('You got more questions incorrect than correct, better luck next time')
 
 #used w3school
