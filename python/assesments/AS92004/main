@@ -3,6 +3,8 @@
 #gets random for random number gernerator
 import random
 import math
+import time
+from time import sleep
 #creates variables
 user_incorrect = 0
 user_correct = 0
@@ -143,14 +145,17 @@ while questions_count < number_of_questions:
     #keeps track of the number of question answered/generated
     questions_count += 1
 
-#prints resordings
-print('You have finished the quiz, here are your results:')
-for i in questions_answers:
-    print(i)
+#prints resordings if user wants them
+if confirm_input('Do you want to see your results? (yes/no): ') == True:
+    print('You have finished the quiz, here are your results:')
+    for i in questions_answers:
+        print(i)
+        sleep(3) #adds a small delay to make it easier to read the results
 
 print()#creates a space between the results and the final message to try make it more readable
 
-#outputs the results of the quiz
+#outputs the results of the quiz if user wants it
+
 print(f'You got {user_correct} questions correct and {user_incorrect} questions incorrect')
 print('which means you got ' + str(round((user_correct/number_of_questions)*100, 2)) + '% of your questions correct')
 print()#creates a space between the results and the final message to try make it more readable
