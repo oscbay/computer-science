@@ -88,7 +88,7 @@ while True:
             #if user wants to have the number of questions they have sellected it will continue on (only triggers if the number of questions is greater than 30)
             elif confirm == True:
                 print('Ok')
-                break
+        break
     else:
         print('Please enter yes or no')
 
