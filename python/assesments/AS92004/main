@@ -162,5 +162,3 @@ elif user_correct > user_incorrect:
     print('Well done, you got more questions correct than incorrect')
 else:
     print('You got more questions incorrect than correct, better luck next time')
-
-#used w3school
