@@ -95,6 +95,7 @@ while True:
         print('Please enter yes or no')
 
 print('Please enter the answers to the questions in the format of 2 d.p, if you do not know the answer please enter 0')
+print()#makes it more readable
 while questions_count < number_of_questions:
 
     #gernerate a question
@@ -102,6 +103,8 @@ while questions_count < number_of_questions:
     math_num_2 = random.randrange(1, max_rand_num, 1)
     math_num_3 = random.randrange(1, max_rand_num, 1)
     question_type = random.choice(question_types)
+
+    print()#creates a space between the questions to make it more readable
 
     #the questions for if the user must find a side
     if question_type == 'side':
