@@ -15,7 +15,7 @@ questions_answers = []
 #create constants
 except_as_yes = ['y', 'yes'] #values excepted as yes
 except_as_no = ['n', 'no'] #values excepted as no
-except_as_skip = ['s', 'skip'] #values excepted to skip question 'correctly'
+except_as_skip = [-1] #values excepted to skip question 'correctly'
 max_rand_num = 100 #max number for random numbers for questions
 question_types = ['hypotenuse', 'side'] #question types (ONLY CHANGE IF OTHER QUESTION TYPES ARE ADDED)
 
