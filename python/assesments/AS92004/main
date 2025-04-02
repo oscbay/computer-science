@@ -79,7 +79,7 @@ while True:
         print('Ok')
         #if the number of questions is greater than 30 it will ask the user if they are sure they want to do this many questions
         if number_of_questions > 30:
-            print('You have selected 30 questions, are you sure you want to answer this many questions?')
+            print('You have selected more than 30 questions, are you sure you want to answer this many questions?')
             confirm = confirm_input('(yes/no): ')
             #if user wants to have the number of questions they have sellected it will continue on (only triggers if the number of questions is greater than 30)
             if confirm == False:
@@ -88,8 +88,6 @@ while True:
             #if user wants to have the number of questions they have sellected it will continue on (only triggers if the number of questions is greater than 30)
             elif confirm == True:
                 print('Ok')
-                break
-            continue
         break
     else:
         print('Please enter yes or no')
