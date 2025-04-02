@@ -108,7 +108,7 @@ while questions_count < number_of_questions:
         answer = round(math.sqrt(math_num_1**2 + math_num_2**2), 2)
         user_answer = get_input(question, "Please enter the 'answer' which is a number", float)
         #checks if the answer is correct and adds to recordings
-        if answer == user_answer or user_answer == except_as_skip:
+        if answer == user_answer or user_answer in except_as_skip:
             print('Correct')
             questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
             questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
@@ -129,7 +129,7 @@ while questions_count < number_of_questions:
         answer = round(math.sqrt(math_num_1**2 - math_num_2**2), 2)
         user_answer = get_input(question, "Please enter the 'answer' which is a number", float)
         #checks if the answer is correct and adds to recordings
-        if answer == user_answer or user_answer == except_as_skip:
+        if answer == user_answer or user_answer in except_as_skip:
             print('Correct')
             questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
             questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
