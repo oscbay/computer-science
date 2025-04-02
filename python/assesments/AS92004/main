@@ -58,13 +58,13 @@ print('You will be asked a series of questions and you will need to answer them 
 
 #ask user for their name and welcome them
 name = get_input("Enter your name: ", "Please enter your name", str)
-print('hello, ' + name)
+print('Hello, ' + name)
 
 
 #ask user how many questions they want to answer and confirm amount the user wants
 confirm = 'n'
 while True:
-    number_of_questions = get_input('How many question do you want? ', 'please enter a number', int)
+    number_of_questions = get_input('How many question do you want? ', 'Please enter a number', int)
     #code that valid errors if the number of questions is < 0
     if number_of_questions < 1:
         print('Please enter a number greater than 0')
@@ -93,8 +93,10 @@ while True:
         print('Please enter yes or no')
 
 print('Please enter the answers to the questions in the format of 2 d.p, if you do not know the answer please enter 0')
-print('5 is rounded down')
+print('5 is rounded down if the next number is less than 5 and rounded up if the next number is 6 or more')
+print('If it repets 5 it will go to the next number')
 print()#makes it more readable
+
 while questions_count < number_of_questions:
 
     #gernerate a question
@@ -108,20 +110,20 @@ while questions_count < number_of_questions:
     #the questions for if the user must find a side
     if question_type == 'side':
         #outputs question, finds the answer then allows input for the answer
-        question = f'What is the hypotenuse of a triangle with the sides of {math_num_1} and {math_num_2}?'
+        question = f'What is the hypotenuse of a triangle with the sides of {math_num_1} and {math_num_2}? '
         answer = round(math.sqrt(math_num_1**2 + math_num_2**2), 2)
         user_answer = get_input(question, "Please enter the 'answer' which is a number", float)
         #checks if the answer is correct and adds to recordings
         if answer == user_answer or user_answer in except_as_skip:
             print('Correct')
             questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
-            questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
+            questions_answers.append(f'You got question ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
             user_correct += 1
         #is the asnwer is incorrect it will output the answer and put it in the recording
         else:
             print('Incorrect, the answer was ' + str(answer))
             questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
-            questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' incorrect as you entered ' + str(user_answer))
+            questions_answers.append(f'You got question ' + str(questions_count+1) + ' incorrect as you entered ' + str(user_answer))
             user_incorrect += 1
     #the questions for if the user must find the hypotenuse
     elif question_type == 'hypotenuse':
@@ -129,20 +131,20 @@ while questions_count < number_of_questions:
         if math_num_1 < math_num_2:
             continue
         #outputs question, finds the answer then allows input for the answer
-        question = f'What is the side of a triangle with the hypotenuse of {math_num_1} and the side of {math_num_2}?'
+        question = f'What is the side of a triangle with the hypotenuse of {math_num_1} and the side of {math_num_2}? '
         answer = round(math.sqrt(math_num_1**2 - math_num_2**2), 2)
         user_answer = get_input(question, "Please enter the 'answer' which is a number", float)
         #checks if the answer is correct and adds to recordings
         if answer == user_answer or user_answer in except_as_skip:
             print('Correct')
             questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
-            questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
+            questions_answers.append(f'You got question ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
             user_correct += 1
         #is the asnwer is incorrect it will output the answer and put it in the recording
         else:
             print('Incorrect, the answer was ' + str(answer))
             questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
-            questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' incorrect as you entered ' + str(user_answer))
+            questions_answers.append(f'You got question ' + str(questions_count+1) + ' incorrect as you entered ' + str(user_answer))
             user_incorrect += 1
     #keeps track of the number of question answered/generated
     questions_count += 1
