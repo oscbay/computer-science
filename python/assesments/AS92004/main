@@ -15,8 +15,10 @@ questions_answers = []
 #create constants
 except_as_yes = ['y', 'yes'] #values excepted as yes
 except_as_no = ['n', 'no'] #values excepted as no
+except_as_skip = ['s', 'skip'] #values excepted to skip question 'correctly'
 max_rand_num = 100 #max number for random numbers for questions
 question_types = ['hypotenuse', 'side'] #question types (ONLY CHANGE IF OTHER QUESTION TYPES ARE ADDED)
+
 
 #create functions
 
@@ -79,7 +81,7 @@ while True:
             confirm = confirm_input('(yes/no): ')
             #if user wants to have the number of questions they have sellected it will continue on (only triggers if the number of questions is greater than 30)
             if confirm == False:
-                print('Please re-enter the number of questions you want.')
+                print('Please re-enter the number of questions you want')
                 continue
             #if user wants to have the number of questions they have sellected it will continue on (only triggers if the number of questions is greater than 30)
             elif confirm == True:
@@ -106,7 +108,7 @@ while questions_count < number_of_questions:
         answer = round(math.sqrt(math_num_1**2 + math_num_2**2), 2)
         user_answer = get_input(question, "Please enter the 'answer' which is a number", float)
         #checks if the answer is correct and adds to recordings
-        if answer == user_answer:
+        if answer == user_answer or user_answer == except_as_skip:
             print('Correct')
             questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
             questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
@@ -127,7 +129,7 @@ while questions_count < number_of_questions:
         answer = round(math.sqrt(math_num_1**2 - math_num_2**2), 2)
         user_answer = get_input(question, "Please enter the 'answer' which is a number", float)
         #checks if the answer is correct and adds to recordings
-        if answer == user_answer:
+        if answer == user_answer or user_answer == except_as_skip:
             print('Correct')
             questions_answers.append(f'The question for this was ' + question + ' and the answer was ' + str(answer))
             questions_answers.append(f'You got qestion ' + str(questions_count+1) + ' correct as you entered ' + str(user_answer))
