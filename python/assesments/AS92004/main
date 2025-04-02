@@ -95,6 +95,7 @@ while True:
         print('Please enter yes or no')
 
 print('Please enter the answers to the questions in the format of 2 d.p, if you do not know the answer please enter 0')
+print('5 is rounded down')
 print()#makes it more readable
 while questions_count < number_of_questions:
 
