@@ -97,6 +97,15 @@ print('5 is rounded down if the next number is less than 5 and rounded up if the
 print('If it repets 5 it will go to the next number')
 print()#makes it more readable
 
+#warning for the odd rounding python does
+print()
+print()
+print('.5 is rounded up')
+sleep(10)
+print()
+print()
+print()
+
 while questions_count < number_of_questions:
 
     #gernerate a question
