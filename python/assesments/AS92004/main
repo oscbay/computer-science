@@ -12,7 +12,7 @@ questions_count = 0
 confirm = 'n'
 
 #creates lists
-questions_answers = []
+questions_answers = [] #list to store the questions and answers are stored
 
 #create constants
 except_as_yes = ['y', 'yes'] #values excepted as yes
@@ -20,7 +20,7 @@ except_as_no = ['n', 'no'] #values excepted as no
 except_as_skip = [-1] #values excepted to skip question 'correctly'
 max_rand_num = 100 #max number for random numbers for questions
 question_types = ['hypotenuse', 'side'] #question types (ONLY CHANGE IF OTHER QUESTION TYPES ARE ADDED)
-
+recommended_max_num_of_questiosn = 30 #recommended max number of questions to be asked
 
 #create functions
 
@@ -78,7 +78,7 @@ while True:
     elif confirm == True:
         print('Ok')
         #if the number of questions is greater than 30 it will ask the user if they are sure they want to do this many questions
-        if number_of_questions > 30:
+        if number_of_questions > recommended_max_num_of_questiosn:
             print('You have selected more than 30 questions, are you sure you want to answer this many questions?')
             confirm = confirm_input('(yes/no): ')
             #if user wants to have the number of questions they have sellected it will continue on (only triggers if the number of questions is greater than 30)
