@@ -62,7 +62,6 @@ print('Hello, ' + name)
 
 
 #ask user how many questions they want to answer and confirm amount the user wants
-confirm = 'n'
 while True:
     number_of_questions = get_input('How many question do you want? ', 'Please enter a number', int)
     #code that valid errors if the number of questions is < 0
@@ -167,7 +166,8 @@ if confirm_input('Do you want to see your results? (yes/no): ') == True:
 
 print()#creates a space between the results and the final message to try make it more readable
 
-#outputs the results of the quiz if user wants it
+#outputs the stats of the quiz
+print('You have finished the quiz, here are your results:')
 
 print(f'You got {user_correct} questions correct and {user_incorrect} questions incorrect')
 print('which means you got ' + str(round((user_correct/number_of_questions)*100, 2)) + '% of your questions correct')
