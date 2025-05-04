@@ -1,0 +1,4 @@
+#will be used to create func for the assessment program
+
+def random_number:
+    return random.randint(1, 100)
